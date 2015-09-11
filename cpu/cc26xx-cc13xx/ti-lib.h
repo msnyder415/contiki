@@ -490,8 +490,11 @@
 #define ti_lib_rom_timer_wait_on_trigger_control      ROM_TimerWaitOnTriggerControl
 
 /* TRNG API */
-#define ti_lib_rom_trng_configure                     ROM_TRNGConfigure
-#define ti_lib_rom_trng_number_get                    ROM_TRNGNumberGet
+#include "driverlib/trng.h"
+#define ti_lib_trng_configure                         TRNGConfigure
+#define ti_lib_trng_enable                            TRNGEnable
+#define ti_lib_trng_number_get                        TRNGNumberGet
+#define ti_lib_trng_status_get                        TRNGStatusGet
 
 /* UART API */
 #define ti_lib_rom_uart_fifo_level_get                ROM_UARTFIFOLevelGet

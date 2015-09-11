@@ -69,6 +69,7 @@ CONTIKI_CPU_SOURCEFILES += putchar.c ieee-addr.c batmon-sensor.c
 CONTIKI_CPU_SOURCEFILES += slip-arch.c slip.c cc26xx-uart.c lpm.c
 CONTIKI_CPU_SOURCEFILES += gpio-interrupt.c oscillators.c
 CONTIKI_CPU_SOURCEFILES += rf-core.c rf-ble.c ieee-mode.c
+#CONTIKI_CPU_SOURCEFILES += random.c
 
 DEBUG_IO_SOURCEFILES += dbg-printf.c dbg-snprintf.c dbg-sprintf.c strformat.c
 
@@ -120,4 +121,3 @@ STACK_SIZE = 0
 %.size: %.$(TARGET)
 	@$(SIZE) -A $< | egrep "data|bss" | awk '{s+=$$2} END {s=s+$(STACK_SIZE); f=$(RAM_SIZE)-s; printf "[RAM]   used %6d, free %6d\n",s,f;}'
 	@$(SIZE) -A $< | egrep "text|isr_vector" | awk '{s+=$$2} END {f=$(FLASH_SIZE)-s; printf "[Flash] used %6d, free %6d\n",s,f;}'
-

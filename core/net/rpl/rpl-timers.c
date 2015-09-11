@@ -47,7 +47,7 @@
 #include "lib/random.h"
 #include "sys/ctimer.h"
 
-#define DEBUG DEBUG_NONE
+#define DEBUG DEBUG_FULL
 #include "net/ip/uip-debug.h"
 
 /*---------------------------------------------------------------------------*/
@@ -178,6 +178,7 @@ rpl_reset_periodic_timer(void)
   next_dis = RPL_DIS_INTERVAL / 2 +
     ((uint32_t)RPL_DIS_INTERVAL * (uint32_t)random_rand()) / RANDOM_RAND_MAX -
     RPL_DIS_START_DELAY;
+  PRINTF("RPL: DIS next dis %x\n", next_dis);
   ctimer_set(&periodic_timer, CLOCK_SECOND, handle_periodic_timer, NULL);
 }
 /*---------------------------------------------------------------------------*/
